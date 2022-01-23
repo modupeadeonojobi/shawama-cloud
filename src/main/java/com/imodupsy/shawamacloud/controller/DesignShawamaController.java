@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,16 +45,16 @@ public class DesignShawamaController {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(ingredientList, type));
         }
-        model.addAttribute("design", new Shawama());
+        model.addAttribute("shawama", new Shawama());
         return "design";
     }
 
     @PostMapping
-    public String processDesign(Shawama design, Errors errors) {
+    public String processDesign(@Valid Shawama shawama, Errors errors) {
         if (errors.hasErrors()) {
             return "design";
         }
-        log.info("Processing design: " + design);
+        log.info("Processing design: " + shawama);
 
         return "redirect:/orders/current";
     }
