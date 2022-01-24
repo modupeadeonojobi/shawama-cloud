@@ -1,7 +1,9 @@
 package com.imodupsy.shawamacloud.entity;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * @author iModupsy
@@ -9,18 +11,21 @@ import lombok.RequiredArgsConstructor;
  */
 
 @Data
-@RequiredArgsConstructor
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Ingredient {
+
+    @Id
+    private String id;
+
+    private String name;
+
+    private Type type;
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, SAUCE
     }
-
-    private final String id;
-
-    private final String name;
-
-    private final Type type;
 
 
 }
