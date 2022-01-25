@@ -1,6 +1,6 @@
 package com.imodupsy.shawamacloud.controller;
 
-import com.imodupsy.shawamacloud.entity.Order;
+import com.imodupsy.shawamacloud.entity.OrderShawama;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +23,12 @@ public class OrderController {
 
     @GetMapping("/current")
     public String orderForm(Model model) {
-        model.addAttribute("order", new Order());
+        model.addAttribute("order", new OrderShawama());
         return "orderForm";
     }
 
     @PostMapping
-    public String processOrder(@Valid Order order, Errors errors) {
+    public String processOrder(@Valid OrderShawama order, Errors errors) {
         if (errors.hasErrors()) {
             return "orderForm";
         }

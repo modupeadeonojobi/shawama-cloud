@@ -21,7 +21,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Order {
+public class OrderShawama {
 
     private static final long serialVersionUID = 1L;
 
