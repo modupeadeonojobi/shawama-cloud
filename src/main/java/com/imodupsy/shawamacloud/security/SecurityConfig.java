@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                         .loginPage("/login")
-                // The route you want to navigate the users to immediately they are logged in.
+                /** The route you want to navigate the users to immediately they are logged in. **/
                         .defaultSuccessUrl("/design", true)
                         .loginProcessingUrl("/authenticate")
                         .usernameParameter("/user")
@@ -41,6 +41,13 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .defaultSuccessUrl("/design", true)
 
+                .and()
+                    .logout()
+                    .logoutSuccessUrl("/")
+
+                /** Never disable csrf(Cross-site request forgery). I disable it because of h2 database. **/
+                .and()
+                    .csrf().disable().headers().frameOptions().disable()
 
                 .and()
                 .build();

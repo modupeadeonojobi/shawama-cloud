@@ -8,6 +8,10 @@
 <body>
 <h1>Design your shawama!</h1>
 <img th:src="@{/images/shawama.png}"/>
+
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
 <form method="POST" th:object="${shawama}">
     <div class="grid">
         <div class="ingredient-group" id="wraps">
