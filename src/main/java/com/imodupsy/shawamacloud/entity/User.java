@@ -2,6 +2,7 @@ package com.imodupsy.shawamacloud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,23 +22,33 @@ import java.util.Collection;
 
 @Entity
 @Data
-@RequiredArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private final String username;
-    private final String password;
-    private final String fullName;
-    private final String street;
-    private final String city;
-    private final String state;
-    private final String zip;
-    private final String phoneNumber;
+    private  String username;
+    private  String password;
+    private  String fullName;
+    private  String street;
+    private  String city;
+    private  String state;
+    private  String zip;
+    private  String phoneNumber;
 
+    public User(String username, String password, String fullName, String street, String city, String state, String zip, String phoneNumber) {
+
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
