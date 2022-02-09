@@ -32,17 +32,19 @@ public class User implements UserDetails {
     private  String username;
     private  String password;
     private  String fullName;
+    private  String email;
     private  String street;
     private  String city;
     private  String state;
     private  String zip;
     private  String phoneNumber;
 
-    public User(String username, String password, String fullName, String street, String city, String state, String zip, String phoneNumber) {
+    public User(String username, String password, String fullName, String email, String street, String city, String state, String zip, String phoneNumber) {
 
         this.username = username;
         this.password = password;
         this.fullName = fullName;
+        this.email = email;
         this.street = street;
         this.city = city;
         this.state = state;

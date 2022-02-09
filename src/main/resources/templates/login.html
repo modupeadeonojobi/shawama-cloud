@@ -16,7 +16,6 @@
             <a th:href="@{/oauth2/authorization/facebook}">Login with Facebook</a>
         </p>
         <form id="loginForm" method="POST" th:action="@{/login}">
-<!--            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
             <label for="username">Username: </label>
             <input id="username" name="username" type="text"/><br/>
             <label for="password">Password: </label>

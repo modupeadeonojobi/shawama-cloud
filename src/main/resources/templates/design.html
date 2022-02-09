@@ -12,10 +12,11 @@
 <form method="POST" th:action="@{/logout}">
     <input type="submit" value="Logout"/>
 </form>
-<form method="POST" th:object="${shawama}">
+<form method="POST" th:action="@{/orders/current}" th:object="${shawama}" >
     <div class="grid">
         <div class="ingredient-group" id="wraps">
             <h3>Designate your wrap:</h3>
+            <!--/*@thymesVar id="wrap" type=""*/-->
             <div th:each="ingredient : ${wrap}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}"
                 />
