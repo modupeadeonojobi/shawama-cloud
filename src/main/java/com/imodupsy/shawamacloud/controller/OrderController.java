@@ -30,7 +30,7 @@ public class OrderController {
     @PostMapping
     public String processOrder(@Valid OrderShawama order, Errors errors) {
         if (errors.hasErrors()) {
-            return "orderForm";
+            return "redirect:/orders/current";
         }
         log.info("Order submitted: " + order);
         return "redirect:/";

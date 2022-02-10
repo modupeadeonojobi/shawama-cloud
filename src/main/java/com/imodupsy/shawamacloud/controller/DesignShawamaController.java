@@ -6,9 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Arrays;
@@ -49,10 +47,11 @@ public class DesignShawamaController {
         return "design";
     }
 
-    @PostMapping
+    @PostMapping("/submit")
     public String processDesign(@Valid Shawama shawama, Errors errors) {
+
         if (errors.hasErrors()) {
-            return "design";
+            return "redirect:/design";
         }
         log.info("Processing design: " + shawama);
 
