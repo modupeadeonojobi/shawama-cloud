@@ -51,7 +51,7 @@ public class DesignShawamaController {
     public String processDesign(@Valid Shawama shawama, Errors errors) {
 
         if (errors.hasErrors()) {
-            return "redirect:/design";
+            return "design";
         }
         log.info("Processing design: " + shawama);
 
