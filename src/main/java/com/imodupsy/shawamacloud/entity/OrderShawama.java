@@ -53,6 +53,9 @@ public class OrderShawama {
     @Digits(integer = 3, fraction = 0, message = MessageConstant.INVALID_CVV)
     private String ccCVV;
 
+    @ManyToOne
+    private User user;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Shawama> shawamaList = new ArrayList<>();
 
